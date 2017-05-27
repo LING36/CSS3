@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		div{
+			margin: 20px auto;
+			text-align: center;
+		}
+			.box1 {
+				padding: 10px 50px;
+				background-color: #ccc;
+				border-radius: 25px;
+				text-align: center;
+			}
+			
+			.box2 {
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+				box-shadow: 10px 10px 5px #888;
+				/*x轴偏移量y轴偏移量和阴影模糊大小及颜色*/
+			}
+			
+			.round {
+				border: 15px solid transparent;
+				/*颜色为透明*/
+				width: 300px;
+				padding: 10px 20px;
+/*				其实应该是四个值30 30 30 30（上右下左），简写为两个30分别表示“上下”“左右”两个位置*/
+				-moz-border-image: url(img/border.jpg) 30 30 round;
+				/* Old Firefox */
+				-webkit-border-image: url(img/border.jpg) 30 30 round;
+				/* Safari and Chrome */
+				-o-border-image: url(img/border.jpg) 30 30 round;
+				/* Opera */
+				border-image: url(img/border.jpg) 30 30 round;
+			}
+			.stretch{
+				border: 15px solid transparent;
+				/*颜色为透明*/
+				width: 300px;
+				padding: 10px 20px;
+				border-image:url(img/border.png) 30 30 stretch;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box1">圆角边框</div>
+		<div class="box2">边框阴影</div>
+		<!--边框图片-->
+		<div class="round">在这里，图片铺满整个边框。</div>
+		<div class="stretch">在这里，图片被拉伸以填充该区域。</div>
+	</body>
+
+</html>
