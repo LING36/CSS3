@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body {
+				background: url(img/bg_flower.gif);
+				background-size: 63px 100px;
+				padding-top: 80px;
+				background-repeat: no-repeat;
+			}
+			
+			.box {
+				height: 500px;
+				/*border: 1px solid red;*/
+				background: url(img/bg_flower.gif);
+				background-size: 35% 100%;
+				background-repeat: no-repeat;
+			}
+			#div1,#div2{
+				border: 1px solid black;
+				padding: 35px;
+				background-image: url(img/bg_flower.gif);
+				background-repeat: no-repeat;
+				background-position: left;
+			}
+			#div1{
+				background-origin: border-box;
+			}
+			#div2{
+				background-origin: content-box;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p>上面是缩小的背景图片。</p>
+		<p>原始图片：<img src="img/bg_flower.gif" alt="Flowers"></p>
+		<div class="box"></div>
+		<p>background-origin:border-box:</p>
+		<div id="div1">
+			这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。
+		</div>
+
+		<p>background-origin:content-box:</p>
+		<div id="div2">
+			这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。这是文本。
+		</div>
+
+	</body>
+
+</html>
