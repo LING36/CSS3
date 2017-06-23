@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#wrap {
+				margin: 50px auto;
+				position: relative;
+				border: 1px solid #000;
+				width: 600px;
+				height: 500px;
+			}
+			
+			#div {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100px;
+				height: 100px;
+				background: red;
+				cursor: move;/*可移动对象*/
+			}
+		</style>
+		<script type="text/javascript">
+			//延迟代码执行
+			document.addEventListener('DOMContentLoaded', function() {
+				//匿名函数自运行
+				(function() {
+					//offsetParent是个只读属性，返回最近显示指定位置的容器元素的引用。
+					//如果元素没有指定位置，最近的元素或者根元素（标准模式下是html，怪异模式下是body）就是offsetParent。
+					//当元素的style.display='none'时，offsetParent返回null。由于offsetTop和offsetLeft是相对于页边距，因此offsetParent是非常有用的。
+					var div = document.querySelector('#div'); //获取元素节点
+					console.log(div.offsetParent)//返回id为wrap的div
+					var maxX = div.offsetParent.clientWidth - div.offsetWidth;//计算出大盒子的宽度减去小盒子的宽度
+					var maxY = div.offsetParent.clientHeight - div.offsetHeight;//计算出大盒子的高度减去小盒子的高度
+					// addEventListener()与removeEventListener()用于处理指定和删除事件处理程序操作。
+					// 它们都接受3个参数：事件名、事件处理的函数和布尔值。
+					//指定鼠标按钮被按下事件
+					div.addEventListener('mousedown', function(e) {
+						e.preventDefault();//阻止浏览器默认行为
+						var start = {
+							x: e.clientX,//返回当事件被触发时，鼠标指针相对于浏览器可视区域的水平坐标和垂直坐标
+							y: e.clientY
+						};
+						var elOffset = {
+							x: div.offsetLeft,//返回当前元素离定位父级元素顶部的距离和左边的距离
+							y: div.offsetTop
+						};
+						document.addEventListener('mousemove', move);
+						document.addEventListener('mouseup', end);
+
+						function move(e) {
+							var dis = {
+								x: e.clientX - start.x,
+								y: e.clientY - start.y
+							};
+							var x = dis.x + elOffset.x;
+							var y = dis.y + elOffset.y;
+							/* 左侧磁性吸附 */
+							x = x < 0 ? 0 : (x > maxX ? maxX : x);
+							y = y < 0 ? 0 : (y > maxY ? maxY : y);
+							console.log(x);
+							div.style.left = x + "px";
+							div.style.top = y + "px";
+						}
+
+						function end(e) {
+							document.removeEventListener('mousemove', move);
+							document.removeEventListener('mouseup', end);
+							var dis = {
+								x: e.clientX - start.x,
+								y: e.clientY - start.y
+							};
+							var x = dis.x + elOffset.x;
+							var y = dis.y + elOffset.y;
+							/* 左侧磁性吸附 */
+							x = x < 100 ? 0 : (x > maxX ? maxX : x);
+							/* 上边磁性吸附 */
+							y = y < 100 ? 0 : (y > maxY ? maxY : y);
+							console.log(x);
+							div.style.left = x + "px";
+							div.style.top = y + "px";
+						}
+					});
+				})();
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div id="div">文字</div>
+		</div>
+
+	</body>
+
+</html>
