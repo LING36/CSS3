@@ -3,7 +3,146 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			div{
+				width: 20%;
+				height: 100px;
+				float: left;
+				text-align: center;
+				line-height: 100px;
+				color: #fff;
+			}
+			.crosshair{
+				background: saddlebrown;
+				cursor: crosshair;/*十字准心*/
+			}
+			.pointer{
+				background: salmon;
+				cursor: pointer;/*手,写两个是为了照顾IE5，它只认hand。*/
+				cursor: hand;
+			}
+			.wait{
+				background: goldenrod;
+				cursor: wait;/*等待/沙漏*/
+			}
+			.help{
+				background:cadetblue;
+				cursor: help;/*帮助*/
+			}
+			.no-drop{
+				background: firebrick;
+				cursor: no-drop;/*无法释放，禁止*/
+			}
+			.text{
+				background: slateblue;
+				cursor: text;/*文字/编辑*/
+			}
+			.move{
+				background: violet;
+				cursor: move;/*可移动对象*/
+			}
+			.n-resize{
+				background: hotpink;
+				cursor: n-resize;/*向上改变大小*/
+			}
+			.s-resize{
+				background: slateblue;
+				cursor: s-resize;/*向下改变大小*/
+			}
+			.e-resize{
+				background: darkorange;
+				cursor: e-resize;/*向右改变大小*/
+			}
+			.w-resize{
+				background: darkolivegreen;
+				cursor: w-resize;/*向左改变大小*/
+			}
+			.ne-resize{
+				background: seagreen;
+				cursor: ne-resize;/*向上右改变大小*/
+				cursor:sw-resize;/*向下左改变大小*/
+			}
+			.nw-resize{
+				background: magenta;
+				cursor: nw-resize;/*向上左改变大小*/
+				/*cursor: se-resize;*//*向下右改变大小*/
+			}
+			.auto{
+				background: goldenrod;
+				cursor: auto;/*自动*/
+			}
+			.not-allowed{
+				background: maroon;
+				cursor: not-allowed;/*禁止*/
+			}
+			.progress{
+				background: teal;
+				cursor: progress;/*处理中*/
+			}
+			.default{
+				background: lightcoral;
+				cursor: default;/*系统默认*/
+			}
+		</style>
 	</head>
 	<body>
+		<div class="crosshair">
+			cursor:crosshair;
+		</div>
+		<div class="pointer">
+			cursor:pointer; cursor:hand;
+		</div>
+		<div class="wait">
+			cursor:wait;
+		</div>
+		<div class="help">
+			cursor:help;
+		</div>
+		<div class="no-drop">
+			cursor:no-drop;
+		</div>
+		<div class="text">
+			cursor:text;
+		</div>
+		<div class="move">
+			cursor:move;
+		</div>
+		<div class="n-resize">
+			cursor:n-resize;
+		</div>
+		<div class="s-resize">
+			cursor:s-resize;
+		</div>
+		<div class="e-resize">
+			cursor:e-resize;
+		</div>
+		<div class="w-resize">
+			cursor:w-resize;
+		</div>
+		<div class="ne-resize">
+			cursor:ne-resize;
+			cursor:sw-resize;
+			
+		</div>
+		<div class="nw-resize">
+			cursor:nw-resize;
+			cursor:se-resize;
+		</div>
+		<div class="auto">
+			cursor:auto;
+		</div>
+		<div class="not-allowed">
+			cursor:not-allowed;
+		</div>
+		<div class="progress">
+			 cursor:progress;
+		</div>
+		<div class="default">
+			cursor:default;
+		</div>
 	</body>
 </html>
