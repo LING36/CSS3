@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#SlideShowBox {
+				width:390px;
+				margin: 0 auto;
+				position: relative;
+				top: 100px;
+				/*position: absolute;*/
+			}
+			
+			#SlideShowBox .SlideShow .SlideShow_Img {
+				position: absolute;
+			}
+			.SlideShow_Img img{
+				width: 100%;
+				height: 100%;
+			}
+			.btn {
+				position: absolute;
+				top: 150px;
+				width: 40px;
+				height: 60px;
+				font-size: 40px;
+				color: #fff;
+				text-align: center;
+				line-height: 60px;
+				display: none;
+				background-color: rgba(0, 0, 0, 0.2);
+			}
+			
+			.btn_right {
+				position: absolute;
+				right: 0;
+			}
+			/*设置导航条样式开始*/
+			
+			.tabs {
+				position: absolute;
+				/*left: 300px;*/
+				top: 270px;
+			}
+			
+			.tab {
+				/*position: absolute;*/
+				float: left;
+				width: 20px;
+				height: 20px;
+				text-align: center;
+				line-height: 20px;
+				border-radius: 100%;
+				cursor: pointer;
+				margin-right: 10px;
+				background-color: white;
+			}
+			/*设置导航条样式结束*/
+			
+			.bg {
+				background-color: red;
+			}
+			/*鼠标移到图片时出现之前隐藏的.btn盒子*/
+			
+			#SlideShowBox:hover .btn {
+				display: block;
+				cursor: pointer;
+			}
+			
+			.btn:hover {
+				background-color: rgba(0, 0, 0, 0.5);
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+		<script>
+			var i = 0;
+			var timer;
+			$(function() {
+				//显示第一张图片
+				$(".SlideShow_Img").eq(0).fadeIn(300).siblings().fadeOut(300);
+				ShowTime();
+				//实现鼠标移到导航条时，停止轮播
+				$(".tab").hover(function() {
+					//获取当前鼠标位置的索引,然后赋值给i，在调用show()方法
+					i = $(this).index();
+					Show();
+					//清除轮播
+					clearInterval(timer);
+				}, function() {
+					ShowTime();
+				});
+				//实现鼠标移到图片时，停止轮播
+				$(".SlideShow_Img").hover(function() {
+					//获取当前鼠标位置的索引,然后赋值给i，在调用show()方法
+					i = $(this).index();
+					Show();
+					//清除轮播
+					clearInterval(timer);
+				}, function() {
+					ShowTime();
+				});
+				//左侧点击按钮
+				$(".btn_left").click(function() {
+					//先停止轮播
+					clearInterval(timer);
+					if (i == 0) {
+						i = 6;
+					}
+					i--;
+					Show();
+					ShowTime();
+				});
+				//右侧点击按钮
+				$(".btn_right").click(function() {
+					//先停止轮播
+					clearInterval(timer);
+					if (i == 6) {
+						i = -1;
+					}
+					i++;
+					Show();
+					ShowTime();
+				});
+			});
+			//创建显示图片的Show()方法
+			function Show() {
+				$(".SlideShow_Img").eq(i).fadeIn(300).siblings().fadeOut(300);
+				//轮播图下导航条的功能：addClass()方法与removClass()方法
+				$(".tab").eq(i).addClass("bg").siblings().removeClass("bg");
+			}
+			//创建轮播图ShowTime()方法
+			function ShowTime() {
+				//实现轮播方法：setInterval(function(){},time);
+				timer = setInterval(function() {
+					i++;
+					if (i == 6) {
+						i = 0;
+					}
+					Show();
+				}, 3000);
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="SlideShowBox">
+
+			<!--图片区开始-->
+
+			<div class="SlideShow">
+
+				<div class="SlideShow_Img">
+					<a href=""><img src="img/cat01.jpg" alt="" /></a>
+				</div>
+
+				<div class="SlideShow_Img">
+					<a href=""><img src="img/cat02.jpg" alt="" /></a>
+				</div>
+
+				<div class="SlideShow_Img">
+					<a href=""><img src="img/cat03.jpg" alt="" /></a>
+				</div>
+
+				<div class="SlideShow_Img">
+					<a href=""><img src="img/cat04.jpg" alt="" /></a>
+				</div>
+
+				<div class="SlideShow_Img">
+					<a href=""><img src="img/cat01.jpg" alt="" /></a>
+				</div>
+
+				<div class="SlideShow_Img">
+					<a href=""><img src="img/cat02.jpg" alt="" /></a>
+				</div>
+			</div>
+
+			<!--图片区结束-->
+
+			<div class="btn btn_left"><</div>
+			<div class="btn btn_right">></div>
+
+			<!--导航条开始-->
+
+			<div class="tabs">
+				<div class="tab bg">1</div>
+				<div class="tab">2</div>
+				<div class="tab">3</div>
+				<div class="tab">4</div>
+				<div class="tab">5</div>
+				<div class="tab">6</div>
+			</div>
+
+			<!--导航条结束-->
+		</div>
+	</body>
+
+</html>
