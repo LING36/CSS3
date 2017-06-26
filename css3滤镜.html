@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		/*filter: none | blur() | brightness() | contrast() | drop-shadow() | grayscale() | hue-rotate() | invert() | opacity() | saturate() | sepia() | url();
+　　　　可以看到，属性有很多可选值，他们都是什么意思呢？
+　　　　
+1　　grayscale灰度
+
+2　　sepia褐色（有种复古的旧照片感觉）
+
+3　　saturate饱和度
+
+4　　hue-rotate色相旋转
+
+5　　invert反色
+
+6　　opacity透明度
+
+7　　brightness亮度
+
+8　　contrast对比度
+
+9　　blur模糊
+
+　　　10　　drop-shadow阴影*/
+			.lj{
+				/*灰度100%*/
+				/*-webkit-filter: grayscale(100%);*/
+				/*invert反色*/
+				 /*-webkit-filter:invert(100%);*/
+				/*模糊*/
+				  -webkit-filter:blur(1px);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>原图</div>
+		<img src="img/cat01.jpg" />
+		<div>滤镜过后的图</div>
+		<img src="img/cat01.jpg" class="lj" />
+	</body>
+
+</html>
