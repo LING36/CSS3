@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		/*向下倒影*/
+			img.button {
+				-webkit-box-reflect: below 5px -webkit-linear-gradient(transparent 10%,rgba(0,0,0,.3));/*对应的一张图;距离5px；线性渐变*/
+				box-reflect: below 5px;
+			}
+			/*向左倒影*/
+			.left{
+				-webkit-box-reflect: left 0 -webkit-radial-gradient(#000 30%,transparent);/*对应的一张图;距离5px；线性渐变*/
+				box-reflect: below 5px;
+				margin-left: 500px;
+			}
+			/*遮罩*/
+			.zez{
+				-webkit-box-reflect: right 0 url(img/zz.png);
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--<img src="img/cat03.jpg" class="button"/>-->
+		
+		<!--<img src="img/cat04.jpg" class="left"/>-->
+		
+		<img src="img/cat02.jpg" class="zez"/>
+	</body>
+
+</html>
