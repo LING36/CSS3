@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Es6</title>
+		<!--Babel：将ES6代码转为ES5代码 http://babeljs.io/-->
+		<script>
+			window.onload= function(){
+				//1.新特性变量声明let、const
+				//let 定义的变量不会被变量提升，const 定义的常量不能被修改，let 和 const 都是块级作用域
+				//ES6前，js 是没有块级作用域 {} 的概念的。（有函数作用域、全局作用域、eval作用域）
+				//ES6后，let 和 const 的出现，js 也有了块级作用域的概念，前端的知识是日新月异的~
+				//变量提升：在ES6以前，var关键字声明变量。无论声明在何处，都会被视为声明在函数的最顶部；不在函数内即在全局作用域的最顶部。这样就会引起一些误解。例如：
+				
+				console.log(a);//undefined
+				var a = 'hello';
+				
+				//上面的代码相当于
+				var a;
+				console.log(a);
+				a = 'hello';
+				
+				//而let就不会被变量提升
+//				console.log(b);//b is not defined
+				//let b = 'hello';
+				
+				//const定义的常量不能被修改
+				var name = 'laoxie';
+				name = 'laoyao';
+				console.log(name);
+				
+				const sxe = '女';
+				//sxe = '男';
+				console.log(sxe)//Assignment to constant variable
+				
+				//解构赋值
+				//ES6允许我们对数组和对象中提取值，对变量进行赋值，这被叫做“解构”
+				//1、数组
+				var [a,b,c] = [1,2,3] //a=1,b=2,c=3
+				var [a,[[b],c]] = [10,[[20],30]]//a=10,b=20,c=30
+				var [a,...b] = [1,2,3,4]//a=1,b=[2,3,4]
+				//2、对象
+				//变量必须与对象属性名相同，否则为undefined 
+				var {a,b}={a:'html',b:'css'}//a=html b=css
+				//如果变量名与属性名不相同，则必须写成以下格式才能取到值
+				var {a:test} = {a:'html',b:'css'}  //test=>html
+				console.log(test)
+				
+				//解构的用途
+				//1、交换变量值
+				var x='x';
+				var y='y';
+				var [x,y] = [y,x];//y=x x=y
+				
+				//2、函数返回多个值
+				function example(){
+					return [1,2,3]
+				}
+				//接收
+				var [x,y,z] = example();//x=1,y=2,z=3
+				
+				//3、定义函数形参
+				//es6解构
+				function person({name,age,gender='女',hobby}){
+					// var {name,age,gender,hobby} = {name:'贾玲',gender:'女',hobby:['说','学'],age:30}
+					var obj= {
+						name:name,
+						age:age,
+						gender:gender,
+						hobby:hobby
+					}
+					console.log(name)//贾玲 韩红
+				}
+				person({name:'贾玲',gender:'女',hobby:['说','学'],age:30});
+				person({name:'韩红',hobby:['说','学'],age:30});
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
