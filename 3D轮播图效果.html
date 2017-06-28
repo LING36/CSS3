@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/3d.css" />
+		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+		<script>
+			$(function() {
+				var pic = 0,
+					stop = true;
+				$("#box .prev").click(function() {
+					if (!stop) {
+						return;
+					}
+					stop = false;
+					pic--;
+					$("#box li").each(function(key) {
+						$(this).css({
+							"transform": "rotateX(" + pic * 90 + "deg)",
+							"transition-delay": key * 0.25 + "s"
+						});
+					})
+				});
+				$("#box .next").click(function() {
+					if (!stop) {
+						return;
+					}
+					stop = false;
+					pic++;
+					$("#box li").each(function(key) {
+						$(this).css({
+							"transform": "rotateX(" + pic * 90 + "deg)",
+							"transition-delay": key * 0.25 + "s"
+						})
+					})
+				});
+				$('#box li:last-child').on('webkitTransitionEnd', function() {
+					stop = true;
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul>
+				<li>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</li>
+				<li>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</li>
+				<li>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</li>
+				<li>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</li>
+				<li>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</li>
+			</ul>
+			<a href="javascript:;" class="prev">
+				<</a>
+					<a href="javascript:;" class="next">></a>
+		</div>
+
+	</body>
+
+</html>
