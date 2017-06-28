@@ -4,36 +4,60 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<link rel="stylesheet" href="style.css" />
 		<style>
 			* {
 				margin: 0;
 				padding: 0
 			}
 			
+			a {
+				text-decoration: none;
+			}
+			
 			#calendar {
 				width: 210px;
 				margin: 100px auto;
 				overflow: hidden;
-				border: 1px solid #000;
+				/*border: 1px solid #f7f7f7;*/
+				background: #f7f7f7;
+				box-shadow: 0px 0px 10px #C0C0C0;
 				padding: 20px;
 				position: relative
 			}
+			/*#calendar .header{
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				border: 1px solid red;
+			}*/
 			
 			#calendar h4 {
 				text-align: center;
-				margin-bottom: 10px
+				margin-bottom: 10px;
+			}
+			
+			#calendar a {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
 			}
 			
 			#calendar .a1 {
 				position: absolute;
 				top: 20px;
-				left: 20px;
+				left: 25px;
+			}
+			
+			#calendar .a1:hover,
+			.a2:hover {
+				box-shadow: 0px 0px 10px #C0C0C0;
 			}
 			
 			#calendar .a2 {
 				position: absolute;
 				top: 20px;
-				right: 20px;
+				right: 25px;
 			}
 			
 			#calendar .week {
@@ -72,6 +96,7 @@
 			#calendar .dateList .red {
 				background: #F90;
 				color: #fff;
+				border-radius: 100%;
 			}
 			
 			#calendar .dateList .sun {
@@ -86,7 +111,7 @@
 				var iNow = 0;
 
 				function run(n) {
-					var oDate = new Date(); //定义时间
+					var oDate = new Date(); //定义时间,执行代码的本地时间
 					oDate.setMonth(oDate.getMonth() + n); //设置月份
 					var year = oDate.getFullYear(); //年
 					var month = oDate.getMonth(); //月
@@ -150,8 +175,8 @@
 	<body>
 		<div id="calendar">
 			<h4>2013年10月</h4>
-			<a href="##" class="a1">上月</a>
-			<a href="##" class="a2">下月</a>
+			<a href="##" class="a1"><span class="czs-angle-left-l"></span></a>
+			<a href="##" class="a2"><span class="czs-angle-right-l"></span></a>
 			<ul class="week">
 				<li>日</li>
 				<li>一</li>
