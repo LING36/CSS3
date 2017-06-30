@@ -1,0 +1,298 @@
+
+//1.变量 请注意 LESS 中的变量为完全的 ‘常量’ ，所以只能定义一次.
+@color:#4d926f;
+#header{
+    color: @color;
+}
+h2{
+    color: @color;
+}
+/* 生成的 CSS */
+/*
+#header {
+  color: #4D926F;
+}
+h2 {
+  color: #4D926F;
+}
+*/
+
+
+
+//2.混合
+.rounded (@font: 20px){
+    font-size: @font;
+}
+#header{
+    .rounded;
+}
+#footer{
+    .rounded(14px);
+}
+
+/* 生成的 CSS */
+/*
+#header {
+  font-size: 20px;
+}
+#footer {
+  font-size: 14px;
+}
+ */
+
+
+//3.嵌套规则
+#header{
+    border: 1px solid red;
+    a{
+        text-decoration: none;
+        font-size: 16px;
+    }
+}
+
+//4.函数 & 运算      运算提供了加，减，乘，除操作；我们可以做属性值和颜色的运算
+@the-border:1px;
+@base-color:#111;
+@red:#842210;
+.yunsuan{
+    border: 1px solid red;
+    color: @base-color * 3;
+    border-left: @the-border;
+    border-right: @the-border * 2;
+    
+}
+.hanshu{
+    border: 1px solid red;
+    color: @base-color + #003300;
+    border-color:desaturate(@red,10%) ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

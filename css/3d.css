@@ -27,7 +27,7 @@ a {
 	margin-top: -30px;
 	font-size: 40px;
 	color: #FFF;
-	text-decoration: none;
+	text-decoration: none;/*去掉默认a标签的下划线*/
 	background-color: rgba(0, 0, 0, 0.5);
 	position: absolute;
 	top: 50%;
@@ -43,7 +43,7 @@ a:last-child {
 ul {
 	width: 560px;
 	height: 300px;
-	list-style: none;
+	list-style: none;/*去掉li默认前面的小点*/
 }
 
 li {
@@ -51,8 +51,8 @@ li {
 	height: 300px;
 	float: left;
 	position: relative;
-	transition: all 1s;
-	transform-style: preserve-3d;
+	transition: all 1s;/*所有动画运动时间为1s*/
+	transform-style: preserve-3d;/*规定被嵌套元素如何在 3D 空间中显示。*/
 	/*transform:rotateX(-30deg);
 	*/
 	/*perspective:1000px;
@@ -69,12 +69,12 @@ li span {
 }
 
 li span:nth-child(1) {
-	transform: translateZ(150px);
+	transform: translateZ(150px);/*定义沿着Z轴3D旋转*/
 	background-image: url(http://www.jq22.com/img/cs/500x300-1.png);
 }
 
 li span:nth-child(2) {
-	transform: rotateX(90deg) translateZ(150px);
+	transform: rotateX(90deg) translateZ(150px);/*定义沿着 X 轴的 3D 旋转。*/
 	background-image: url(http://www.jq22.com/img/cs/500x300-2.png);
 }
 
@@ -89,7 +89,7 @@ li span:nth-child(4) {
 }
 
 li:nth-child(2) span {
-	background-position: -112px 0;
+	background-position: -112px 0;/*背景定位*/
 }
 
 li:nth-child(3) span {

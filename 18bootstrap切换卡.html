@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/day-wen.css" />
+		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+		<script type="text/javascript" src="js/jquery.jsonp.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script>
+			$(function() {
+				//每日一文
+				function tianqi() {
+					//首先介绍下$.ajax的参数
+					//type：请求方式 GET/POST
+					//url:请求地址
+					//async:布尔类型，默认为true 表示请求是否为异步，如果为false表示为同步。
+					//dataType：返回的数据类型
+					//jsonp：传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+					//jsonpCallback：自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+					//success：调用成功执行的函数
+					//error：异常处理函数
+					var bool = true;
+					$.ajax({
+						url: "https://interface.meiriyiwen.com/article/today?dev=1",
+						type: "get",
+						dataType: 'json',
+						success: function(data) {
+							$.each(data, function(index, value) {
+								var $div = $('<div/>'); //生成一个div标签  box
+								$div.addClass('article clear').appendTo('#panel-451477');
+								var $h2 = $('<h2/>'); //生成一个h2标签 题目
+								$h2.html(value.title).appendTo('.article');
+								var $p_author = $('<p/>'); //生成一个P标签 作者
+								$p_author.html('作者：' + value.author).appendTo('.article');
+								var $p_date = $('<p/>'); //生成一个p标签  当前日期
+								$p_date.html('当前日期：' + value.date.curr).appendTo('.article');
+								var $p_content = $('<p/>'); //生成一个P标签 正文
+								$p_content.html(value.digest).addClass('content').appendTo('.article');
+								var $btn = $('<span/>'); //生成一个span标签   查看全文按钮
+								$btn.html('查看全文').addClass('btn').appendTo('.article');
+								$btn.click(function() {
+									bool = !bool;
+									if (bool) {
+										$p_content.html(value.digest);
+										$btn.html('查看全文');
+									} else {
+										$p_content.html(value.content);
+										$btn.html('收起');
+									}
+								});
+								console.log(value)
+							});
+							console.log(data)
+						},
+						error: function() {
+							alert("请求出错！");
+						}
+					});
+				};
+				tianqi();
+				//特定某天一文
+				function specific() {
+					var bool = true;
+					var day = 20170206;
+//					$('.search span').click(fundtion(){
+//						day = $('.search input').val();
+//					});
+					$.ajax({
+						url: "https://interface.meiriyiwen.com/article/day?dev=1&date=20170206",
+						type: "get",
+						dataType: 'json',
+						success: function(data) {
+							$.each(data, function(index, value) {
+								var $div = $('<div/>'); //生成一个div标签  box
+								$div.addClass('article clear').appendTo('#panel-361677');
+								var $h2 = $('<h2/>'); //生成一个h2标签 题目
+								$h2.html(value.title).appendTo('.article');
+								var $p_author = $('<p/>'); //生成一个P标签 作者
+								$p_author.html('作者：' + value.author).appendTo('.article');
+								var $p_date = $('<p/>'); //生成一个p标签  当前日期
+								$p_date.html('当前日期：' + value.date.curr).appendTo('.article');
+								var $p_content = $('<p/>'); //生成一个P标签 正文
+								$p_content.html(value.digest).addClass('content').appendTo('.article');
+								var $btn = $('<span/>'); //生成一个span标签   查看全文按钮
+								$btn.html('查看全文').addClass('btn').appendTo('.article');
+								$btn.click(function() {
+									bool = !bool;
+									if (bool) {
+										$p_content.html(value.digest);
+										$btn.html('查看全文');
+									} else {
+										$p_content.html(value.content);
+										$btn.html('收起');
+									}
+								});
+								console.log(value)
+							});
+							console.log(data)
+						},
+						error: function() {
+							alert("请求出错！");
+						}
+					});
+				};
+				specific();
+				
+				
+				//随机一文
+				function suiji() {
+					var bool = true;
+					$.ajax({
+						url: "https://interface.meiriyiwen.com/article/random?dev=1",
+						type: "get",
+						dataType: 'json',
+						success: function(data) {
+							$.each(data, function(index, value) {
+								var $div = $('<div/>'); //生成一个div标签  box
+								$div.addClass('article clear').appendTo('#panel-361777');
+								var $h2 = $('<h2/>'); //生成一个h2标签 题目
+								$h2.html(value.title).appendTo('.article');
+								var $p_author = $('<p/>'); //生成一个P标签 作者
+								$p_author.html('作者：' + value.author).appendTo('.article');
+								var $p_date = $('<p/>'); //生成一个p标签  当前日期
+								$p_date.html('当前日期：' + value.date.curr).appendTo('.article');
+								var $p_content = $('<p/>'); //生成一个P标签 正文
+								$p_content.html(value.digest).addClass('content').appendTo('.article');
+								var $btn = $('<span/>'); //生成一个span标签   查看全文按钮
+								$btn.html('查看全文').addClass('btn').appendTo('.article');
+								$btn.click(function() {
+									bool = !bool;
+									if (bool) {
+										$p_content.html(value.digest);
+										$btn.html('查看全文');
+									} else {
+										$p_content.html(value.content);
+										$btn.html('收起');
+									}
+								});
+								console.log(value)
+							});
+							console.log(data)
+						},
+						error: function() {
+							alert("请求出错！");
+						}
+					});
+				};
+				suiji();
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="tabbable" id="tabs-756049">
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#panel-451477" data-toggle="tab">每日一文</a>
+							</li>
+							<li>
+								<a href="#panel-361677" data-toggle="tab">特定某天一文</a>
+							</li>
+							<li>
+								<a href="#panel-361777" data-toggle="tab">第三部分</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="panel-451477">
+								<!--<div class="article">
+									<h2>伊丽莎白</h2>
+									<p>作者： 李白</p>
+									<p>日期：2017/06/29</p>
+									<p>
+										内容吧解决淡淡的事实上撒啊啊啊
+									</p>
+								</div>-->
+							</div>
+							<div class="tab-pane" id="panel-361677">
+								<div class="search"><input type="text" placeholder="输入日期如：20170909" /><span>查询</span></div>
+
+								<!--<p>
+									第二部分内容.
+								</p>-->
+							</div>
+							<div class="tab-pane" id="panel-361777">
+								<!--<p>
+									第三部分内容.
+								</p>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
