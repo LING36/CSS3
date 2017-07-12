@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.1.1.js" ></script>
+	</head>
+	<script>
+		$(function(){
+			
+			$.ajax({
+				type:"get",
+				url:"http://v3.wufazhuce.com:8000/api/essay/1010?version=3.5.0&platform=android",
+				async:true,
+				success: function(data){
+					console.log(data)
+					$('<h4/>').appendTo('body').html('标题：'+data.data.hp_title);
+					$('<p/>').appendTo('body').html('作者：'+data.data.hp_author);
+					$('<div/>').appendTo('body').html(data.data.hp_content);
+				}
+				
+			});
+			
+		})
+	</script>
+	<body>
+	</body>
+</html>

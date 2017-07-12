@@ -1,14 +1,17 @@
 .container-fluid {
 	margin-top: 20px;
 }
-.clear{
+
+.clear {
 	zoom: 1;
 }
-.clear:after{
+
+.clear:after {
 	content: '';
 	display: block;
 	clear: both;
 }
+
 .height {
 	height: auto;
 }
@@ -16,27 +19,31 @@
 .content {
 	text-indent: 2em;
 }
-.btn{
+
+.btn {
 	float: right;
 	background: skyblue;
 	padding: 5px;
 	border-radius: 5px;
 	color: #fff;
 }
-#panel-361677 div.search{
+
+#panel-361677 div.search {
 	margin-top: 20px;
 	/*border: 1px solid red;*/
 	height: 30px;
 	line-height: 30px;
 }
-input{
+
+input {
 	/*margin-top: 20px;*/
 	display: inline-block;
 	height: 100%;
 }
-#panel-361677 span{
+
+#panel-361677 span {
 	display: inline-block;
-	height:100%;
+	height: 100%;
 	line-height: 30px;
 	background-color: skyblue;
 	padding: 0px 10px;
