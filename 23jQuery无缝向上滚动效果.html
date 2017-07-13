@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.myscroll {
+				width: 300px;
+				height: 260px;
+				margin: 0 auto;
+				border: 1px solid #ccc;
+				line-height: 26px;
+				font-size: 12px;
+				overflow: hidden;
+			}
+			
+			.myscroll ul {
+				border: 1px solid red;
+				position: relative;
+			}
+			
+			.myscroll li {
+				height: 26px;
+				margin-left: 25px;
+			}
+			
+			.myscroll a {
+				color: #333;
+				text-decoration: none;
+			}
+			
+			.myscroll a:hover {
+				color: #ED5565;
+				text-decoration: underline;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+		<script>
+			$(function() {
+				var height_ul = $('ul').height(); //获取ul的高度
+				$('ul li').clone().appendTo('ul');
+
+				function yundong() {
+					//var top = $('ul').top();
+					//console.log(top)
+					//if(
+					$('ul').animate({ top:-height_ul}, 10000);
+//					var top = $('ul').css('top')
+//					console.log(top)
+					
+//					if()
+				};
+				yundong();
+
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="myscroll">
+			<ul>
+				<li>
+					<a href="#">用FlexSlider制作支付宝2013版幻灯片</a>
+				</li>
+				<li>
+					<a href="#">扁平化UI/Flat UI Kit(PSD)</a>
+				</li>
+				<li>
+					<a href="#">童趣卡通圣诞老人矢量素材(EPS)</a>
+				</li>
+				<li>
+					<a href="#">63个线性图标素材(PSD)</a>
+				</li>
+				<li>
+					<a href="#">15个音乐类图标素材(AI)</a>
+				</li>
+				<li>
+					<a href="#">jQuery侧边导航插件SidebarJS</a>
+				</li>
+				<li>
+					<a href="#">jQuery计时器插件TimeCircles</a>
+				</li>
+				<li>
+					<a href="#">jQuery仿Google Play幻灯片效果插件plusview</a>
+				</li>
+				<li>
+					<a href="#">100个圣诞节矢量图标(PSD/SVG)</a>
+				</li>
+				<li>
+					<a href="#">用FlexSlider制作《枪神纪》幻灯片效果</a>
+				</li>
+				<li>
+					<a href="#">用FlexSlider制作支付宝2013版幻灯片</a>
+				</li>
+				<li>
+					<a href="#">扁平化UI/Flat UI Kit(PSD)</a>
+				</li>
+				<li>
+					<a href="#">童趣卡通圣诞老人矢量素材(EPS)</a>
+				</li>
+				<li>
+					<a href="#">63个线性图标素材(PSD)</a>
+				</li>
+				<li>
+					<a href="#">15个音乐类图标素材(AI)</a>
+				</li>
+				<li>
+					<a href="#">jQuery侧边导航插件SidebarJS</a>
+				</li>
+				<li>
+					<a href="#">jQuery计时器插件TimeCircles</a>
+				</li>
+				<li>
+					<a href="#">jQuery仿Google Play幻灯片效果插件plusview</a>
+				</li>
+				<li>
+					<a href="#">100个圣诞节矢量图标(PSD/SVG)</a>
+				</li>
+				<li>
+					<a href="#">用FlexSlider制作《枪神纪》幻灯片效果</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>
