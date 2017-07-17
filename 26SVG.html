@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.yuan svg{
+				/*border: 1px solid red;*/
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!--
+			SVG圆形
+			<circle> 标签可用来创建一个圆。
+			1\cx 和 cy 属性定义圆点的 x 和 y 坐标(圆心坐标)。如果省略 cx 和 cy，圆的中心会被设置为 (0, 0)
+			2\r 属性定义圆的半径。
+			3\fill 为填充背景色
+			4\stroke 为填充边框色
+			5\边框的粗细
+			6\stroke-dasharray属性用于创建虚线
+			stroke-dasharray = '10'
+			stroke-dasharray = '10, 10'
+			stroke-dasharray = '10, 10, 5, 5'
+			7\viewBox属性是用于指定用户SVG图像的坐标系统的原点以及尺寸的。
+			所有在SVG内绘制的内容都是相对于这个坐标系统完成的。因为SVG画布在所有方向都是无限延长的，
+			你甚至可以在这个坐标系统的边界之外的地方绘制图形；但是这些相对于SVG视窗定位的图形，也可以由用户坐标系的位置来控制。
+			著作权归作者所有。商业转载请联系作者获得授权,非商业转载请注明出处。
+			原文: http://www.w3cplus.com/svg/svg-art-direction-using-viewbox.html © w3cplus.com
+			
+			stroke-dasharray="100 900" 意思：将边框分为1000份边框颜色占100，无色占900
+		-->
+		<!--实例-->
+		<!--<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			<circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
+		</svg>-->
+		<div class="yuan">
+			<!--<svg width="166" height="166" viewBox="0 0 440 440">
+				<circle cx="220" cy="220" r="150" stroke="none" fill="#f06e72"></circle>
+				<circle class="circle" cx="220" cy="220" r="170" stroke-width="12" stroke="#f06e72" fill="none" stroke-dasharray="100 900"></circle>
+
+			</svg>-->
+			<svg width="200" height="200" viewBox="0 0 1000 1000">
+				<circle cx="500" cy="500" r="280" stroke="none" fill="#f77722"></circle>
+				<circle cx="500" cy="500" r="400" stroke-width="50" stroke="#f77722" fill="none" stroke-dasharray="20 120"></circle>
+			</svg>
+			<!--svg的width和height控制画布大小，与circle值都形成比例-->
+		</div>
+	</body>
+
+</html>
