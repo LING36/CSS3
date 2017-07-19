@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body {
+				font: 12px/19px Arial, Helvetica, sans-serif;
+				color: #666;
+			}
+			
+			form div {
+				margin: 5px 0;
+			}
+			
+			.int label {
+				float: left;
+				width: 100px;
+				text-align: right;
+			}
+			
+			.int input {
+				padding: 1px 1px;
+				border: 1px solid #ccc;
+				height: 16px;
+			}
+			
+			.sub {
+				padding-left: 100px;
+			}
+			
+			.sub input {
+				margin-right: 10px;
+			}
+			
+			.formtips {
+				width: 200px;
+				margin: 2px;
+				padding: 2px;
+			}
+			
+			.onError {
+				background: #FFE0E9 url(images/reg3.gif) no-repeat 0 center;
+				padding-left: 25px;
+			}
+			
+			.onSuccess {
+				background: #E9FBEB url(images/reg4.gif) no-repeat 0 center;
+				padding-left: 25px;
+			}
+			
+			.high {
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form method="post" action="">
+			<div class="int">
+				<label for="username">用户名:</label>
+				<input type="text" id="username" class="required" />
+			</div>
+			<div class="int">
+				<label for="email">邮箱:</label>
+				<input type="text" id="email" class="required" />
+			</div>
+			<div class="int">
+				<label for="personinfo">个人资料:</label>
+				<input type="text" id="personinfo" />
+			</div>
+			<div class="sub">
+				<input type="submit" value="提交" id="send" /><input type="reset" id="res" />
+			</div>
+		</form>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+	<script>
+		$(function() {
+			$("form :input.required").each(function() {
+				var $required = $("<strong class='high'>*</strong>");
+				$(this).parent().append($required);
+			})
+			$("form :input").blur(function() {
+				var $parent = $(this).parent();
+				$(".formtips").remove();
+				if($(this).is("#username")) {
+					if(this.value == '' || this.value.length < 6) {
+						var errmsg = '请输入正确的格式.';
+						$parent.append('<span class="formtips onError">' + errmsg + '</span>')
+					} else {
+						var sucssemsg = '格式输入正确';
+						$parent.append('<span class="formtips onSuccess">' + sucssemsg + '</span>')
+					}
+				}
+				if($(this).is("#email")) {
+					//邮箱格式正则表达式的用法
+					if(this.value == '' || (this.value != "" && !/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value))) {
+						var errmsg = '请输入正确的格式.';
+						$parent.append('<span class="formtips onError">' + errmsg + '</span>')
+					} else {
+						var sucssemsg = '格式输入正确';
+						$parent.append('<span class="formtips onSuccess">' + sucssemsg + '</span>')
+					}
+				}
+			})
+			$("#send").click(function() {
+				var onerr = $(this).parent().siblings().children().hasClass("onError"); //出错就会添加class为onerror的元素
+				if(onerr) {
+					return false;
+				} else {
+					alert("你已经注册成功了");
+				}
+			})
+			$("#reset").click(function() {
+				$(".formtips").remove();
+			})
+		})
+	</script>
+
+</html>
