@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>滚动公告</title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			body {
+				margin: 50px;
+			}
+			
+			ul {
+				list-style: none;
+				border: 1px solid red;
+				display: inline-block;
+				height: 30px;
+				overflow: hidden;
+			}
+			
+			li {
+				height: 30px;
+				line-height: 30px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+		<script>
+			$(function() {
+				//粉红色背景
+				$(document.body).css("background", "pink");
+				//最简单的方式,但不推荐,因为频繁操作了dom
+				setInterval(function() {
+					//获取第一条公告的多种方法
+					//$('ul :first');
+					//$('ul').children().first();
+					//深度克隆第一条公告
+					var newLi = $('ul>:first').clone(true);
+					newLi.appendTo('ul'); //将克隆的第一条公告插入ul
+					$('ul>:first').remove(); //移除第一条公告
+				}, 2000)
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<ul>
+			<li>我是第1条公告。。。。</li>
+			<li>dhgfdvcxcdcsc。。。。</li>
+			<li>的本地化的我说的是。。。。</li>
+			<li>适当放松的手段实现。。。。</li>
+			<li>收到我的视线嘻嘻嘻嘻嘻嘻。。。。</li>
+			<li>为单位的事实。。。。</li>
+			<li>速度为单位。。。。</li>
+			<li>所谓的味道味道。。。。</li>
+			<li>为单位分房。。。。</li>
+			<li>v分给个人发帖果然。。。。</li>
+		</ul>
+	</body>
+</html>
